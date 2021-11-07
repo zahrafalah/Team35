@@ -4,16 +4,17 @@ import java.sql.*;
 
 
 public class Driver {
-	private Connection conn;
+	private static Connection conn;
 	private String url;
-	private String username;
-	private String password;
+	private String hostUsername;
+	private String hostPassword;
 	private String database;
+	
 	
 	public Driver(String url, String database, String username, String password){
 		this.url = url;
-		this.username = username;
-		this.password = password;
+		this.hostUsername = username;
+		this.hostPassword = password;
 		this.database = database;
 		
 		Connection connection = this.createConnection();
@@ -21,8 +22,8 @@ public class Driver {
 		
 	}
 	
-	private Connection getConnection() {
-		return this.conn;
+	public Connection getConnection() {
+		return conn;
 	}
 	
 	private void setConnection(Connection conn) {
@@ -32,26 +33,11 @@ public class Driver {
 	private Connection createConnection() {
 		Connection conn = null;
 		try {
-			conn = DriverManager.getConnection(this.url+ this.database, this.username , this.password);
-			
-			
+			conn = DriverManager.getConnection(this.url+ this.database, this.hostUsername , this.hostPassword);
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}
+		
 		return conn;
 	}
-	
-	public ResultSet getPatients() throws Exception {
-		try {
-			Connection conn = this.getConnection();
-			Statement stmt = conn.createStatement();
-			ResultSet results = stmt.executeQuery("select * from patients");
-			return results;
-		}catch(Exception exc) {
-			throw exc;
-		}
-		
-	}
-	
-	
 }
