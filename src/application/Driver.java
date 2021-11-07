@@ -22,7 +22,7 @@ public class Driver {
 		
 	}
 	
-	public Connection getConnection() {
+	public static Connection getConnection() {
 		return conn;
 	}
 	
@@ -34,6 +34,7 @@ public class Driver {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(this.url+ this.database, this.hostUsername , this.hostPassword);
+			System.out.println("Connection created");
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}

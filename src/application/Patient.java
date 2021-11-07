@@ -1,3 +1,7 @@
+/**
+ * @author: Zahra
+ * {@summary}: Class to represent a Patient
+ */
 package application;
 
 public class Patient {

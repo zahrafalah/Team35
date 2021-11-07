@@ -15,9 +15,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			Driver driver = new Driver("jdbc:mysql://localhost:3306/","office", "root", "password");
 			
-			Parent root = FXMLLoader.load(getClass().getResource("/application/Login.fxml"));
-			Scene scene = new Scene(root,400,400);
+			Parent root = FXMLLoader.load(getClass().getResource("/pages/Login.fxml"));
+			Scene scene = new Scene(root,800,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -27,17 +28,6 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		
 		launch(args);
-		Driver driver = new Driver("jdbc:mysql://localhost:3306/","office", "root", "password");
-		Connection conn = driver.getConnection();
-		try {
-			PatientQuery patientQuery = new PatientQuery(conn);
-			Patient patient = patientQuery.getPatient("Zahra", "123456");
-			System.out.println(patient.getUsername());
-			System.out.println(patient.getId());
-		}catch(Exception exc) {
-			System.out.println(exc);
-		}
 	}
 }

@@ -31,7 +31,9 @@ public class PatientQuery {
 	public Patient getPatient(String username, String password) throws SQLException {
 		Patient patient = null;
 		try {
-			PreparedStatement preparedStatment = this.conn.prepareStatement(getOnePatientQuery(username, password));			
+			String query = getOnePatientQuery(username, password);
+			System.out.println(query);
+			PreparedStatement preparedStatment = this.conn.prepareStatement(query);			
 			ResultSet resultSet = preparedStatment.executeQuery();
 			
 			if (resultSet.next()) {
