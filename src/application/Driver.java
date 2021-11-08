@@ -1,3 +1,7 @@
+/**
+ * @author: Zahra
+ * {@summary}: Creates a database connection
+ */
 package application;
 
 import java.sql.*;
