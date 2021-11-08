@@ -1,19 +1,24 @@
 package application;
 	
+import java.sql.Connection;
+import java.sql.ResultSet;
+
 import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/application/Login.fxml"));
-			Scene scene = new Scene(root,400,400);
+			Driver driver = new Driver("jdbc:mysql://localhost:3306/","office", "root", "password");
+			
+			Parent root = FXMLLoader.load(getClass().getResource("/pages/Login.fxml"));
+			Scene scene = new Scene(root,800,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();

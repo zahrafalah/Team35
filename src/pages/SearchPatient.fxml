@@ -39,7 +39,7 @@
                         </HBox>
                      </children>
                   </FlowPane>
-                  <MenuButton contentDisplay="TOP" mnemonicParsing="false" text="Yogesh">
+                  <MenuButton fx:id="username" contentDisplay="TOP" mnemonicParsing="false">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Logout" />
                     </items>

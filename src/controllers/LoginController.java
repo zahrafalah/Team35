@@ -1,5 +1,5 @@
 /**
- * @author: Yogesh
+ * @author: Yogesh,Zahra
  * {@summary}: This program holds controls of Login UI
  */
 
@@ -8,16 +8,24 @@
 package controllers;
 
 import java.io.IOException;
+import java.sql.Connection;
 
+import application.Driver;
+import application.Patient;
+import database.PatientQuery;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
+	@FXML
+	private Label lblstatus;
 
 	@FXML
 	private TextField username;
@@ -26,20 +34,34 @@ public class LoginController {
 	private TextField password;
 
 	public void Login(ActionEvent event) {
-		if (username.getText().equals("user") && password.getText().equals("pass")) {
-			System.out.println("successful login");
 			try {
+				System.out.println("attempting login");
+				
+				Connection conn = Driver.getConnection();
+				
+				PatientQuery patientQuery = new PatientQuery(conn);
+				Patient patient = patientQuery.getPatient(this.username.getText(), this.password.getText());
+				
+				if (patient == null) {
+					lblstatus.setText("Login Failed");
+					return;
+				}				
+				
 				Node node = (Node) event.getSource();
 				Stage stage = (Stage) node.getScene().getWindow();
-				Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/pages/SearchPatient.fxml")));
+				
+				stage.setUserData(patient);
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/SearchPatient.fxml"));
+				Parent root = (Parent)loader.load();
+				
+				SearchPatientController controller = (SearchPatientController) loader.getController();
+				controller.SetPatient(patient);
+				Scene scene = new Scene(root);
+				
 				stage.setScene(scene);
 				stage.show();
-
-			} catch (IOException ex) {
+			} catch (Exception ex) {
 				System.err.println(ex.getMessage());
 			}
-		} else {
-			System.out.println("unsuccessful login");
-		}
 	}
 }

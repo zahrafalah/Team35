@@ -7,17 +7,23 @@ package controllers;
 
 import java.io.IOException;
 
+import application.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SearchPatientController {
-
+	private Patient patient;
+	
+	@FXML
+	private MenuButton username;
+	
 	@FXML
 	private TextField firstName;
 
@@ -26,7 +32,13 @@ public class SearchPatientController {
 
 	@FXML
 	private DatePicker dob;
+	
+	public void SetPatient(Patient patient) {
+		this.patient = patient;
+		username.setText(patient.getUsername());
+	}
 
+	
 	public void SearchPatient(ActionEvent event) {
 		/* ToDo - Should be removed before marking story as done */
 		System.out.println("patient successfully searched");
@@ -34,6 +46,7 @@ public class SearchPatientController {
 			/* ToDo - should search patient in system and redirect to doctor's dashboard or add vitals page for doctor and nurse users */
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
+					
 			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/pages/AddVitals.fxml")));
 			stage.setScene(scene);
 			stage.show();
