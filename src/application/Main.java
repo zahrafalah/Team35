@@ -1,8 +1,6 @@
 package application;
-	
-import java.sql.Connection;
-import java.sql.ResultSet;
 
+import database.Driver;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -15,18 +13,19 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Driver driver = new Driver("jdbc:mysql://localhost:3306/","office", "root", "password");
-			
+			new Driver("jdbc:mysql://localhost:3306/","office", "root", "password");
+
 			Parent root = FXMLLoader.load(getClass().getResource("/pages/Login.fxml"));
 			Scene scene = new Scene(root,800,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
