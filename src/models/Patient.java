@@ -2,13 +2,13 @@
  * @author: Zahra
  * {@summary}: Class to represent a Patient
  */
-package application;
+package models;
 
 public class Patient {
 	private int id;
 	private String username;
 	private String password;
-	
+
 	public Patient(String username, String pass, int id) {
 		this.username= username;
 		this.password = pass;

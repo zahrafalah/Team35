@@ -5,9 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.JOptionPane;
-
-import application.Patient;
+import models.Patient;
 
 public class PatientQuery {
 	

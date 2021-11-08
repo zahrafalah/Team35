@@ -2,7 +2,7 @@
  * @author: Zahra
  * {@summary}: Creates a database connection
  */
-package application;
+package database;
 
 import java.sql.*;
 

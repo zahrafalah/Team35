@@ -7,7 +7,6 @@ package controllers;
 
 import java.io.IOException;
 
-import application.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +16,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import models.Patient;
 
 public class SearchPatientController {
 	private Patient patient;
