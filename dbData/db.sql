@@ -4,6 +4,10 @@ create table patients(
    _id INT NOT NULL AUTO_INCREMENT,
    username VARCHAR(100) NOT NULL UNIQUE,
    password VARCHAR(40) NOT NULL,
+   email VARCHAR(40),
+   DOB VARCHAR(40),
+   firstName VARCHAR(40),
+   secondName VARCHAR(40),
    PRIMARY KEY ( _id )
 );
 
