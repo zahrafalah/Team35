@@ -55,4 +55,24 @@ public class SearchPatientController {
 			System.err.println(ex.getMessage());
 		}
 	}
+	
+	public void startMessaging(ActionEvent event){
+		System.out.println("Messaging");
+		try {
+			
+			Node node = (Node) event.getSource();
+			Stage stage = (Stage) node.getScene().getWindow();			
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/messaging.fxml"));
+			Parent root = (Parent)loader.load();
+			MessagingController messagingController = (MessagingController) loader.getController();
+			messagingController.setPatient(patient);
+			System.out.println(patient.getUsername());
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (IOException ex) {
+			System.err.println(ex.getMessage());
+		}
+	}
 }

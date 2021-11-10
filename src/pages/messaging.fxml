@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MessagingController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <ToolBar layoutY="-5.0" prefHeight="39.0" prefWidth="689.0">
+               <items>
+                  <FlowPane prefHeight="0.0" prefWidth="591.0">
+                     <children>
+                        <Label prefHeight="29.0" prefWidth="206.0" style="-fx-font-weight: bold;" text="Doctor's Office Automation System">
+                           <FlowPane.margin>
+                              <Insets left="12.0" />
+                           </FlowPane.margin>
+                        </Label>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="365.0">
+                           <children>
+                              <Label text="Search Patient" />
+                              <Label text="Messages">
+                                 <HBox.margin>
+                                    <Insets left="16.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </FlowPane>
+                  <MenuButton contentDisplay="TOP" mnemonicParsing="false" text="Yogesh">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Logout" />
+                    </items>
+                  </MenuButton>
+               </items>
+            </ToolBar>
+            <VBox alignment="TOP_CENTER" layoutY="33.0" prefHeight="367.0" prefWidth="689.0">
+               <children>
+                  <GridPane alignment="TOP_CENTER" prefHeight="362.0" prefWidth="669.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="160.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="360.0" minWidth="10.0" prefWidth="359.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="157.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" prefHeight="330.0" vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="112.0" prefWidth="252.0" GridPane.columnIndex="1">
+                           <children>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="358.0">
+                                       <children>
+                                          <StackPane alignment="TOP_LEFT">
+                                             <children>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="78.0" stroke="#aeaeae" strokeType="INSIDE" width="256.0">
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" top="8.0" />
+                                                   </VBox.margin>
+                                                   <StackPane.margin>
+                                                      <Insets left="8.0" />
+                                                   </StackPane.margin>
+                                                </Rectangle>
+                                                <VBox minWidth="-Infinity" prefHeight="78.0" prefWidth="228.0">
+                                                   <children>
+                                                      <Label prefHeight="41.0" prefWidth="249.0" text="Hi, I have a query about my throat. Is it right place to ask about it?" wrapText="true">
+                                                         <padding>
+                                                            <Insets left="6.0" top="6.0" />
+                                                         </padding>
+                                                         <VBox.margin>
+                                                            <Insets left="12.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label text="07:00 pm 09/21/21">
+                                                         <VBox.margin>
+                                                            <Insets left="12.0" />
+                                                         </VBox.margin>
+                                                         <padding>
+                                                            <Insets left="6.0" top="12.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane alignment="TOP_RIGHT">
+                                             <children>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="78.0" stroke="#aeaeae" strokeType="INSIDE" width="256.0">
+                                                   <StackPane.margin>
+                                                      <Insets left="8.0" top="12.0" />
+                                                   </StackPane.margin>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" top="8.0" />
+                                                   </VBox.margin>
+                                                </Rectangle>
+                                                <VBox minWidth="-Infinity" prefHeight="78.0" prefWidth="358.0">
+                                                   <children>
+                                                      <Label prefHeight="41.0" prefWidth="249.0" text="Hi Katy, I hope you are not in too much pain. please tell us what is the exact issue." wrapText="true">
+                                                         <padding>
+                                                            <Insets left="6.0" top="6.0" />
+                                                         </padding>
+                                                         <VBox.margin>
+                                                            <Insets left="12.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label text="07:00 pm 09/21/21 - Dr. Kartavya Chouhan">
+                                                         <padding>
+                                                            <Insets left="6.0" top="12.0" />
+                                                         </padding>
+                                                         <VBox.margin>
+                                                            <Insets left="12.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="96.0" top="12.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane alignment="TOP_LEFT">
+                                             <children>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="61.0" stroke="#aeaeae" strokeType="INSIDE" width="256.0">
+                                                   <StackPane.margin>
+                                                      <Insets left="8.0" top="12.0" />
+                                                   </StackPane.margin>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" top="8.0" />
+                                                   </VBox.margin>
+                                                </Rectangle>
+                                                <VBox minWidth="-Infinity" prefHeight="62.0" prefWidth="358.0">
+                                                   <children>
+                                                      <Label prefHeight="41.0" prefWidth="249.0" text="I am having sore throat" wrapText="true">
+                                                         <padding>
+                                                            <Insets left="6.0" top="6.0" />
+                                                         </padding>
+                                                         <VBox.margin>
+                                                            <Insets left="12.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label text="07:00 pm 09/21/21">
+                                                         <padding>
+                                                            <Insets bottom="6.0" left="6.0" top="12.0" />
+                                                         </padding>
+                                                         <VBox.margin>
+                                                            <Insets left="12.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <StackPane.margin>
+                                                      <Insets top="12.0" />
+                                                   </StackPane.margin>
+                                                </VBox>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </FlowPane>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea prefHeight="69.0" prefWidth="265.0">
+                                       <HBox.margin>
+                                          <Insets left="8.0" top="20.0" />
+                                       </HBox.margin>
+                                    </TextArea>
+                                    <Button alignment="CENTER" mnemonicParsing="false" text="Send">
+                                       <HBox.margin>
+                                          <Insets left="20.0" top="42.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <StackPane alignment="TOP_LEFT">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="52.0" stroke="WHITE" strokeDashOffset="2.0" strokeType="INSIDE" width="165.0">
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </Rectangle>
+                                    <VBox prefHeight="55.0" prefWidth="165.0">
+                                       <children>
+                                          <Label text="Yogesh Vaidya">
+                                             <padding>
+                                                <Insets left="4.0" top="4.0" />
+                                             </padding>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="I am having headache and current medication isn't working for me">
+                                             <VBox.margin>
+                                                <Insets left="4.0" top="4.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                              <StackPane alignment="TOP_LEFT">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="52.0" stroke="WHITE" strokeDashOffset="2.0" strokeType="INSIDE" width="165.0">
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </Rectangle>
+                                    <VBox prefHeight="55.0" prefWidth="165.0">
+                                       <children>
+                                          <Label text="James Potter">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="4.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label text="My leg hurts when I try to run fast">
+                                             <VBox.margin>
+                                                <Insets left="4.0" top="4.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                              <StackPane alignment="TOP_LEFT">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="52.0" stroke="WHITE" strokeDashOffset="2.0" strokeType="INSIDE" width="165.0">
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </Rectangle>
+                                    <VBox prefHeight="55.0" prefWidth="165.0">
+                                       <children>
+                                          <Label text="Hritik Roshan">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="4.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label text="My hair are turning gray">
+                                             <VBox.margin>
+                                                <Insets left="4.0" top="4.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                              <StackPane alignment="TOP_LEFT">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fafafa" height="52.0" stroke="WHITE" strokeDashOffset="2.0" strokeType="INSIDE" width="165.0">
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </Rectangle>
+                                    <VBox prefHeight="55.0" prefWidth="165.0">
+                                       <children>
+                                          <Label text="Shahrukh Khan">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="4.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label text="I have fractured my nose and i don't what I do right now">
+                                             <VBox.margin>
+                                                <Insets left="4.0" top="4.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                              <StackPane alignment="TOP_LEFT">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fafafa" height="52.0" stroke="BLACK" strokeDashOffset="2.0" strokeType="INSIDE" width="165.0">
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </Rectangle>
+                                    <VBox prefHeight="55.0" prefWidth="165.0">
+                                       <children>
+                                          <Label text="Katy Perry">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="4.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label text="I am having sore throat">
+                                             <VBox.margin>
+                                                <Insets left="4.0" top="4.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                           <children>
+                              <StackPane>
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="317.0" stroke="#c8c8c8" strokeType="INSIDE" width="145.0" />
+                                    <VBox prefHeight="317.0" prefWidth="133.0">
+                                       <children>
+                                          <Label style="-fx-font-weight: bold;" text="Patient - ">
+                                             <VBox.margin>
+                                                <Insets left="8.0" top="8.0" />
+                                             </VBox.margin></Label>
+                                          <Label text="Name -">
+                                             <VBox.margin>
+                                                <Insets left="8.0" top="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="patientName" alignment="CENTER" style="&#10;" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false" text="PatientName">
+                                             <VBox.margin>
+                                                <Insets left="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="Contact No. -">
+                                             <VBox.margin>
+                                                <Insets left="8.0" top="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="+1 (602) xxx-xxxx" textFill="#2b00ff" underline="true">
+                                             <VBox.margin>
+                                                <Insets left="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="Email Id -">
+                                             <VBox.margin>
+                                                <Insets left="8.0" top="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="kp@some.singer" textFill="#2b00ff" underline="true">
+                                             <VBox.margin>
+                                                <Insets bottom="8.0" left="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Separator prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets bottom="8.0" />
+                                             </VBox.margin>
+                                          </Separator>
+                                          <Label text="Doctor's Name -">
+                                             <VBox.margin>
+                                                <Insets left="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="Dr. Katavya Chouhan">
+                                             <VBox.margin>
+                                                <Insets bottom="8.0" left="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Separator prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets bottom="8.0" />
+                                             </VBox.margin>
+                                          </Separator>
+                                          <Label text="Nurse's Name -">
+                                             <VBox.margin>
+                                                <Insets left="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="Mr. Yogesh Vaidya">
+                                             <VBox.margin>
+                                                <Insets left="8.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </StackPane.margin>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+               </children></VBox>
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@BasicApplication_css/BasicApplication.css" />
+  </stylesheets>
+</VBox>
