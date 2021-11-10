@@ -40,14 +40,19 @@ public class PatientQuery {
 				int id = resultSet.getInt("_id");
 				String name = resultSet.getString("username");
 				String pass = resultSet.getString("password");
-				patient = new Patient(name, pass, id);
+				String dob = resultSet.getString("dob");
+				String phoneNumber = resultSet.getString("phoneNumber");
+				String firstName = resultSet.getString("firstName");
+				String secondName = resultSet.getString("secondName");
+				String email = resultSet.getString("email");
+				patient = new Patient(name, pass, id, phoneNumber, dob, firstName, secondName, email);
 			}
 
 		}catch(Exception exp) {
 			exp.printStackTrace();
 			throw exp;
 		}
-
+		
 		return patient;
 
 	}

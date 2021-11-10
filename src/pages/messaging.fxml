@@ -41,7 +41,8 @@
                         </HBox>
                      </children>
                   </FlowPane>
-                  <MenuButton contentDisplay="TOP" mnemonicParsing="false" text="Yogesh">
+                  <!-- <MenuButton contentDisplay="TOP" mnemonicParsing="false" text="Yogesh">  -->
+                  <MenuButton fx:id="userName" contentDisplay="TOP" mnemonicParsing="false">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Logout" />
                     </items>
@@ -351,7 +352,8 @@
                                                 <Insets left="8.0" top="8.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label text="+1 (602) xxx-xxxx" textFill="#2b00ff" underline="true">
+                                          <Label fx:id="phoneNumber" alignment="CENTER" style="&#10;" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false" text="+1 (xxx) xxx-xxxx">
+                                         <!-- <Label text="+1 (602) xxx-xxxx" textFill="#2b00ff" underline="true">  -->
                                              <VBox.margin>
                                                 <Insets left="8.0" />
                                              </VBox.margin>
@@ -361,7 +363,8 @@
                                                 <Insets left="8.0" top="8.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label text="kp@some.singer" textFill="#2b00ff" underline="true">
+                                          <Label fx:id="emailId" alignment="CENTER" style="&#10;" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false" text="">
+                                          <!-- <Label text="kp@some.singer" textFill="#2b00ff" underline="true"> -->
                                              <VBox.margin>
                                                 <Insets bottom="8.0" left="8.0" />
                                              </VBox.margin>
