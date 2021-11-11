@@ -19,6 +19,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import models.Doctor;
+import models.Nurse;
 import models.Patient;
 
 public class SearchPatientController {
@@ -36,6 +38,10 @@ public class SearchPatientController {
 
 	@FXML
 	private DatePicker dob;
+
+	private Nurse nurse;
+
+	private Doctor doctor;
 	
 	public void Logout(ActionEvent event) {
 		try {
@@ -56,7 +62,14 @@ public class SearchPatientController {
 		this.patient = patient;
 		username.setText(patient.getUsername());
 	}
-
+	public void SetNurse(Nurse nurse) {
+		this.nurse = nurse;
+		username.setText(nurse.getUsername());
+	}
+	public void SetDoctor(Doctor doctor) {
+		this.doctor = doctor;
+		username.setText(doctor.getUsername());
+	}
 	
 	public void SearchPatient(ActionEvent event) {
 		/* ToDo - Should be removed before marking story as done */
@@ -74,4 +87,6 @@ public class SearchPatientController {
 			System.err.println(ex.getMessage());
 		}
 	}
+
+	
 }
