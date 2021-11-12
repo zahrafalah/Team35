@@ -35,15 +35,23 @@
                                     <Insets left="16.0" />
                                  </HBox.margin>
                               </Label>
+                              <Label  fx:id="username" contentDisplay="TOP" >
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                     		  </Label>
+                              <Button onAction="#Logout" contentDisplay="TOP" text="Logout" mnemonicParsing="false">
+                      			 <VBox.margin>
+                                 	<Insets left="70.0" right="10.0" top="5.0" />
+                      			 </VBox.margin>
+                  			   </Button>                   
                            </children>
                         </HBox>
                      </children>
                   </FlowPane>
-                  <MenuButton fx:id="username" contentDisplay="TOP" mnemonicParsing="false">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Logout" />
-                    </items>
-                  </MenuButton>
+               
+            
+                  
                </items>
             </ToolBar>
             <VBox alignment="CENTER" layoutY="33.0" prefHeight="367.0" prefWidth="689.0">
