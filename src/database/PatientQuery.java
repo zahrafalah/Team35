@@ -30,6 +30,11 @@ public class PatientQuery {
 		return String.format(
 			"INSERT INTO patients(firstname, lastname, username, dob, password) VALUES('%s','%s','%s','%s','%s');", firstname, lastname, username,dob, pass);
 	}
+	
+	private String searchOnePatientQuery(String firstname, String lastname, String dob) {
+		return String.format(
+			"SELECT * FROM  patients WHERE firstname = '%s' AND lastname = '%s' AND dob = '%s'", firstname, lastname, dob);
+	}
 
 
 //	private String deleteOnePatientQueryStmt = "DELETE FROM patients"+ "WHERE _id = " + userId;
@@ -67,7 +72,28 @@ public class PatientQuery {
 			String pass = resultSet.getString("password");
 			patient = new Patient(name, pass, id);
 		}
-			
+		return patient;
+	}
+	
+	public Patient searchPatient(String firstname, String lastname, String dob) throws SQLException {
+		Patient patient = null;
+		try {
+			String query = searchOnePatientQuery(firstname, lastname, dob);
+			System.out.println(query);
+			PreparedStatement preparedStatment = this.conn.prepareStatement(query);
+			ResultSet resultSet = preparedStatment.executeQuery();
+
+			if (resultSet.next()) {
+				int id = resultSet.getInt("_id");
+				String name = resultSet.getString("username");
+				String pass = resultSet.getString("password");
+				patient = new Patient(name, pass, id);
+			}
+
+		}catch(Exception exp) {
+			exp.printStackTrace();
+			throw exp;
+		}
 		return patient;
 	}
 	

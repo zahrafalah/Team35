@@ -80,7 +80,7 @@
                 <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <DatePicker fx:id="dob" showWeekNumbers="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Button onAction="#SearchPatient" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Search" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <Label textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="errorMessage" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4" />
               </children>
             </GridPane>
           </children>
