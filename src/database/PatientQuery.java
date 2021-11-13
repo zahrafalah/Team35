@@ -8,6 +8,8 @@ import java.time.LocalDate;
 
 import models.Patient;
 
+
+
 public class PatientQuery {
 
 	private Connection conn;
