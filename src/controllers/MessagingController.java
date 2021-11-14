@@ -22,6 +22,8 @@ public class MessagingController {
 	
 	private Patient patient;
 	
+	private static String folderpath  = "C:\\Work\\CSE360\\Team35\\src";
+	
 
 
 	public void setPatient(Patient patient) {
