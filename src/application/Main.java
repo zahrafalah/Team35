@@ -14,11 +14,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			new Driver("jdbc:mysql://localhost:3306/","office", "root", "password");
-
 			Parent root = FXMLLoader.load(getClass().getResource("/pages/Login.fxml"));
-			Scene scene = new Scene(root,800,600);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-
+			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
