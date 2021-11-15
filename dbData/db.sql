@@ -2,8 +2,11 @@ CREATE DATABASE  office;
 USE office;
 create table patients(
    _id INT NOT NULL AUTO_INCREMENT,
+    firstname VARCHAR(100) NOT NULL,
+   lastname VARCHAR(100) NOT NULL,
    username VARCHAR(100) NOT NULL UNIQUE,
-   password VARCHAR(40) NOT NULL,
+   password VARCHAR(40) NOT NULL,  
+   dob VARCHAR(100) NOT NULL,
    PRIMARY KEY ( _id )
 );
 
@@ -39,6 +42,6 @@ INSERT INTO doctors(username,password) VALUES ('Kartavya', '123456');
 INSERT INTO doctors(username,password) VALUES ('Uday', '123456');
 
 SELECT * FROM patients;
-DROP TABLE Doctors ;
+DROP TABLE patients ;
 
 SELECT * FROM  patients WHERE username = 'Zahra' AND password = '123456';
