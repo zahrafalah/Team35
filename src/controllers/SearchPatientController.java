@@ -43,6 +43,17 @@ public class SearchPatientController {
 
 	private Doctor doctor;
 	
+	private String role;
+	
+	
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	private String getRole() {
+		return this.role;
+	}
+	
 	public void Logout(ActionEvent event) {
 		LogoutController logout = new LogoutController();
 		logout.Logout(event);
@@ -79,16 +90,24 @@ public class SearchPatientController {
 	}
 	
 	public void startMessaging(ActionEvent event){
-		System.out.println("Messaging");
 		try {
-			
+			System.out.println(getRole());
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/messaging.fxml"));
 			Parent root = (Parent)loader.load();
 			MessagingController messagingController = (MessagingController) loader.getController();
-			messagingController.setPatient(patient);
-			System.out.println(patient.getUsername());
+			messagingController.setRole(getRole());
+			if(getRole() == "Patient") {
+				messagingController.setPatient(patient);
+			}
+			else if(getRole() == "Doctor"){
+				messagingController.setDoctor(doctor);
+			}
+			else {
+				messagingController.setNurse(nurse);
+			}
+			//System.out.println(patient.getUsername());
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
