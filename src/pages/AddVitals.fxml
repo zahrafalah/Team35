@@ -35,15 +35,22 @@
                         <Insets left="16.0" />
                       </HBox.margin>
                     </Label>
+                    <Label fx:id="username" contentDisplay="TOP">
+                      <HBox.margin>
+                        <Insets left="5.0" />
+                      </HBox.margin>
+                    </Label>
+                    <Button onAction="#Logout" contentDisplay="TOP" text="Logout" mnemonicParsing="false">
+                      <VBox.margin>
+                        <Insets left="70.0" right="10.0" top="5.0" />
+                      </VBox.margin>
+                    </Button>
                   </children>
                 </HBox>
               </children>
             </FlowPane>
-            <MenuButton contentDisplay="TOP" mnemonicParsing="false" text="Yogesh">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Logout" />
-              </items>
-            </MenuButton>
+
+
           </items>
         </ToolBar>
         <VBox alignment="CENTER" layoutY="33.0" prefHeight="367.0" prefWidth="689.0">
@@ -71,7 +78,6 @@
                 <Label text="Height" GridPane.rowIndex="1" />
                 <TextField fx:id="weight" GridPane.columnIndex="1" />
                 <TextField fx:id="height" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Button onAction="#AddVitals" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Add" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 <Label text="Temperature" GridPane.rowIndex="2" />
                 <TextField fx:id="temperature" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label text="Blood Pressure:" GridPane.rowIndex="3" />
@@ -95,6 +101,8 @@
                     </TextField>
                   </children>
                 </HBox>
+                <Button onAction="#AddVitals" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Add" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+              	<Label fx:id="errorMessage" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="6" />
               </children>
             </GridPane>
           </children>
