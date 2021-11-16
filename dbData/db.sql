@@ -7,6 +7,7 @@ create table patients(
    username VARCHAR(100) NOT NULL UNIQUE,
    password VARCHAR(40) NOT NULL,  
    dob VARCHAR(100) NOT NULL,
+   immunization VARCHAR(100) DEFAULT "",
    PRIMARY KEY ( _id )
 );
 
@@ -45,11 +46,11 @@ create table doctors(
    PRIMARY KEY ( _id )
 );
 
-INSERT INTO patients(username,password, firstname, lastname, dob) VALUES ('Zahra', '123456', 'Zahra', 'Falah', '1995-01-01');
-INSERT INTO patients(username,password, firstname, lastname, dob) VALUES ('Yogesh', '123456', 'Yogesh', 'Vaidya', '1996-01-01');  
-INSERT INTO patients(username,password, firstname, lastname, dob) VALUES ('Nipoon', '123456', 'Nipoon', 'Donta', '1997-01-01');
-INSERT INTO patients(username,password, firstname, lastname, dob) VALUES ('Kartavya', '123456', 'Kartavya', 'Chauhan', '1998-01-01');
-INSERT INTO patients(username,password, firstname, lastname, dob) VALUES ('Uday', '123456', 'Uday', 'Polishetty', '1999-01-01');
+INSERT INTO patients(username,password, firstname, lastname, dob, immunization) VALUES ('Zahra', '123456', 'Zahra', 'Falah', '1995-01-01', "");
+INSERT INTO patients(username,password, firstname, lastname, dob, immunization) VALUES ('Yogesh', '123456', 'Yogesh', 'Vaidya', '1996-01-01', "COVID-19: 2021-06-06");  
+INSERT INTO patients(username,password, firstname, lastname, dob, immunization) VALUES ('Nipoon', '123456', 'Nipoon', 'Donta', '1997-01-01', "COVID-19: 2021-06-06, MMR: 2021-06-06");
+INSERT INTO patients(username,password, firstname, lastname, dob, immunization) VALUES ('Kartavya', '123456', 'Kartavya', 'Chauhan', '1998-01-01', "COVID-19: 2021-06-06");
+INSERT INTO patients(username,password, firstname, lastname, dob, immunization) VALUES ('Uday', '123456', 'Uday', 'Polishetty', '1999-01-01', "COVID-19: 2021-06-06");
 
 INSERT INTO nurses(username,password) VALUES ('Zahra', '123456');
 INSERT INTO nurses(username,password) VALUES ('Yogesh', '123456');  

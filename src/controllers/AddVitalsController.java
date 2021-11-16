@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -101,11 +102,15 @@ public class AddVitalsController {
 			
 			String visitId = createVisit(conn, Integer.toString(patient.getId()), vitalId);
 			if (visitId != null) {
-				stage.setUserData(visitId);
-				Scene scene = new Scene(
-						FXMLLoader.load(getClass().getResource("/pages/HealthConcernsAndAllergies.fxml")));
-				stage.setScene(scene);
-				stage.show();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/HealthConcernsAndAllergies.fxml"));
+				Parent root = loader.load();
+				HealthConcernsAndAllergiesController controller = (HealthConcernsAndAllergiesController) loader.getController();
+				controller.setPatient(patient);
+				controller.setNurse(this.nurse);
+				controller.setVisitId(visitId);
+				Scene scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
 				return;
 			}
 			this.errorMessage.setText("Coundn't create patient's visit record. Try again!");
