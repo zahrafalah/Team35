@@ -53,6 +53,11 @@ public class PatientQuery {
 		return String.format(
 			"INSERT INTO visits(patientId, vitalId, createdAt) VALUES('%s','%s', '%s');", patientId, vitalId, strDate);
 	}
+	
+	private String getPatientImmunizationsQuery(int patientId) {
+		return String.format(
+				"SELECT * FROM  patients WHERE _id = '%s';", patientId);
+	}
 
 
 //	private String deleteOnePatientQueryStmt = "DELETE FROM patients"+ "WHERE _id = " + userId;
@@ -155,6 +160,25 @@ public class PatientQuery {
 			throw exp;
 		}
 		return patient;
+	}
+	
+	public String getPatientImmunizations(int patientId) throws SQLException {
+		String immunization = "";
+		try {
+			String query = getPatientImmunizationsQuery(patientId);
+			System.out.println(query);
+			PreparedStatement preparedStatment = this.conn.prepareStatement(query);
+			ResultSet resultSet = preparedStatment.executeQuery();
+
+			if (resultSet.next()) {
+				immunization = resultSet.getString("immunization");
+			}
+
+		}catch(Exception exp) {
+			exp.printStackTrace();
+			throw exp;
+		}
+		return immunization;
 	}
 	
 	public boolean createPatient( String firstname, String lastname, String username, String dob, String password) throws SQLException {
