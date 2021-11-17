@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -112,10 +114,17 @@ public class DoctorDashboardController {
 		setPatientDetails(patient);
 	}
 	
+	private String calculateAge(String dob) {
+		LocalDate today = LocalDate.now();                          //Today's date
+		LocalDate birthday = LocalDate.parse(dob, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		Period p = Period.between(birthday, today);
+		return "" + p.getYears();
+	}
+	
 	private void setPatientDetails(Patient patient) {
 		patientName.setText(patient.getUsername());
-		patientAge.setText("40");
-		//patientAge.setText(patient.getAge());
+		String age = calculateAge(patient.getDob());
+		patientAge.setText(age);
 		setTodaysVitals(patient.getId());
 	}
 	
