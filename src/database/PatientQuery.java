@@ -71,10 +71,10 @@ public class PatientQuery {
 		return String.format(
 				"SELECT * FROM  visits WHERE patientId = '%s';", patientId);
 	}
-	private String saveUpdateQuery(String firstname, String lastname, String email, String phone, int patientID) {
+	private String saveUpdateQuery(String firstname, String lastname, String email, String phone,String immunization, String insurance, String dob, int patientID) {
 		System.out.println(phone);
 		return String.format(
-				"UPDATE patients SET firstname ='%s', lastname = '%s', emailID = '%s', phoneno = '%s' WHERE _id = %d ; ", firstname, lastname, email, phone, patientID);
+				"UPDATE patients SET firstname ='%s', lastname = '%s', emailID = '%s', phoneno = '%s', immunization = '%s', insurance = '%s', dob = '%s' WHERE _id = %d ; ", firstname, lastname, email, phone,immunization, insurance,dob, patientID);
 	}
 
 
@@ -135,11 +135,11 @@ public class PatientQuery {
 		}
 		return result;
 	}
-	public String saveUpdate(String firstname, String lastname, String email, String phone, int patientID)throws SQLException {
+	public String saveUpdate(String firstname, String lastname, String email, String phone,String immunization,String insurance,String dob, int patientID)throws SQLException {
 		String result = null;
 		
 		try {
-			String query = saveUpdateQuery(firstname, lastname,email, phone, patientID);
+			String query = saveUpdateQuery(firstname, lastname,email, phone, immunization,insurance, dob,patientID);
 			System.out.println(query);
 			PreparedStatement preparedStatement = this.conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
 			preparedStatement.executeUpdate();

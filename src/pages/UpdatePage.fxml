@@ -70,12 +70,12 @@
 			  <DatePicker fx:id="dob" layoutX="162.0" layoutY="130.0" />
 			  <Label layoutX="41.0" layoutY="184.0" text="Email ID" />
 			  <TextField fx:id="email" layoutX="162.0" layoutY="180.0" prefHeight="26.0" prefWidth="175.0" />
-			  <Label layoutX="24.0" layoutY="291.0" prefHeight="18.0" prefWidth="122.0" text="Insurance Information" />
-			  <TextField fx:id="insurance" layoutX="162.0" layoutY="229.0" prefHeight="26.0" prefWidth="175.0" />
 			  <Label layoutX="28.0" layoutY="233.0" prefHeight="18.0" prefWidth="96.0" text="Phone Number" />
-			  <TextField fx:id="phoneno" layoutX="164.0" layoutY="275.0" prefHeight="69.0" prefWidth="200.0" /> 
-			  <Label layoutX="28.0" layoutY="310.0" prefHeight="18.0" prefWidth="96.0" text="Phone Number" />
-			  <TextField fx:id="immuno" layoutX="164.0" layoutY="275.0" prefHeight="69.0" prefWidth="200.0" /> 
+			  <TextField fx:id="phoneno" layoutX="162.0" layoutY="233.0" prefHeight="26.0" prefWidth="175.0" /> 
+			  <Label layoutX="24.0" layoutY="275.0" prefHeight="18.0" prefWidth="122.0" text="Insurance Information" />
+			  <TextField fx:id="insurance" layoutX="162.0" layoutY="275.0" prefHeight="26.0" prefWidth="175.0" />
+			  <Label layoutX="32.0" layoutY="310.0" prefHeight="18.0" prefWidth="96.0" text="Immunization" />
+			  <TextField fx:id="immuno" layoutX="162.0" layoutY="310.0" prefHeight="26.0" prefWidth="175.0" /> 
 		
 			  <Button onAction = "#updateProfile" layoutX="250.0" layoutY="360.0" mnemonicParsing="false" text="Update" />
 		   </children>

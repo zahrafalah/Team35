@@ -47,8 +47,7 @@ public class UpdateController {
 	private Label status;
 	@FXML
 	private TextField immuno;
-	@FXML
-	private DatePicker dateOfI;
+	
 	
 	public void Logout(ActionEvent event) {
 		System.out.print("Logiut was clicked");
@@ -119,7 +118,7 @@ public class UpdateController {
 	private String saveUpdate(Connection conn) throws Exception {
 		PatientQuery patientQuery = new PatientQuery(conn);
 		String result = patientQuery.saveUpdate(this.firstname.getText(), this.lastname.getText(),
-				this.email.getText(), this.insurance.getText(), patient.getId());
+				this.email.getText(), this.phoneno.getText(),this.immuno.getText(),this.insurance.getText(),this.dob.getValue().toString(), patient.getId());
 		return result;
 	}
 	

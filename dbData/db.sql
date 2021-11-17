@@ -13,6 +13,7 @@ create table patients(
    immunization VARCHAR(100) DEFAULT "",
    healthConcerns VARCHAR(100) DEFAULT "",
    allergies VARCHAR(100) DEFAULT "",
+   insurance VARCHAR(100),
    PRIMARY KEY ( _id )
 );
 
