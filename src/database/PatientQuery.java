@@ -71,6 +71,11 @@ public class PatientQuery {
 		return String.format(
 				"SELECT * FROM  visits WHERE patientId = '%s';", patientId);
 	}
+	private String saveUpdateQuery(String firstname, String lastname, String email, String phone, int patientID) {
+		System.out.println(phone);
+		return String.format(
+				"UPDATE patients SET firstname ='%s', lastname = '%s', emailID = '%s', phoneno = '%s' WHERE _id = %d ; ", firstname, lastname, email, phone, patientID);
+	}
 
 
 //	private String deleteOnePatientQueryStmt = "DELETE FROM patients"+ "WHERE _id = " + userId;
@@ -130,6 +135,25 @@ public class PatientQuery {
 		}
 		return result;
 	}
+	public String saveUpdate(String firstname, String lastname, String email, String phone, int patientID)throws SQLException {
+		String result = null;
+		
+		try {
+			String query = saveUpdateQuery(firstname, lastname,email, phone, patientID);
+			System.out.println(query);
+			PreparedStatement preparedStatement = this.conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+			preparedStatement.executeUpdate();
+			ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+			if (generatedKeys.next()) {
+				result = Integer.toString(generatedKeys.getInt(1));
+			}
+		}catch(Exception exp) {
+			exp.printStackTrace();
+			throw exp;
+		}
+		return result;
+	}
+	
 	
 	public Boolean addHealthConcernsAndAllergies(int patientId, String healthConcerns, String allergies) throws SQLException {
 		Boolean result = false;
