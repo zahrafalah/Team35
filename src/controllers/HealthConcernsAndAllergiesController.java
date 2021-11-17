@@ -92,8 +92,10 @@ public class HealthConcernsAndAllergiesController {
 
 	private String getPatientImmunizations(Connection conn, int patientId) throws SQLException {
 		PatientQuery patientQuery = new PatientQuery(conn);
-		String immunization = patientQuery.getPatientImmunizations(patientId);
-		return immunization;
+		List<String> patientData = patientQuery.getPatientData(patientId);
+		this.healthConcerns.setText(patientData.get(1));
+		this.allergies.setText(patientData.get(2));
+		return patientData.get(0);
 	}
 
 	private List<VisitRecord> getPatientVisitsRecords(Connection conn, int patientId) throws SQLException {
@@ -101,12 +103,18 @@ public class HealthConcernsAndAllergiesController {
 		List<VisitRecord> visitRecords = patientQuery.getPatientVisitsRecords(patientId);
 		return visitRecords;
 	}
+	
+	private Boolean addHealthConcernsAndAllergies(Connection conn, int patientId) throws SQLException {
+		PatientQuery patientQuery = new PatientQuery(conn);
+		Boolean result = patientQuery.addHealthConcernsAndAllergies(patientId, this.healthConcerns.getText(), this.allergies.getText());
+		return result;
+	}
 
 	public void setVisitId(String visitId) {
 		this.visitId = visitId;
 	}
 
-	public void AddHealthConcernsAndAllergies(ActionEvent event) {
+	public void AddHealthConcernsAndAllergies(ActionEvent event) throws SQLException {
 		/* ToDo - Should be removed before marking story as done */
 		System.out.println("patient's health concerns and allergies successfully added");
 		try {
@@ -114,6 +122,8 @@ public class HealthConcernsAndAllergiesController {
 			 * ToDo - @Nipoon is working on story related to adding health concern and
 			 * allergies in the system
 			 */
+			Connection conn = Driver.getConnection();
+			Boolean result = addHealthConcernsAndAllergies(conn, this.patient.getId());
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/SearchPatient.fxml"));

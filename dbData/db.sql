@@ -8,6 +8,8 @@ create table patients(
    password VARCHAR(40) NOT NULL,  
    dob VARCHAR(100) NOT NULL,
    immunization VARCHAR(100) DEFAULT "",
+   healthConcerns VARCHAR(100) DEFAULT "",
+   allergies VARCHAR(100) DEFAULT "",
    PRIMARY KEY ( _id )
 );
 
