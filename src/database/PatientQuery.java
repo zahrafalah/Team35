@@ -55,6 +55,10 @@ public class PatientQuery {
 	private String addHealthConcernsAndAllergiesQuery(int patientId, String healthConcerns, String allergies) {
 		return String.format(
 			"UPDATE patients SET healthConcerns = %s, allergies = %s WHERE _id = '%s';",healthConcerns, allergies, patientId);
+	public String getVitalsQuery(int patientID) {
+		return String.format(
+				//select * from vitals where patientID = 1 order by _id desc limit 1;
+				"SELECT * FROM  vitals WHERE patientID = %s ORDER BY _id DESC LIMIT 1", patientID);
 	}
 	
 	private String createVisitQuery(String patientId, String vitalId, String strDate) {
