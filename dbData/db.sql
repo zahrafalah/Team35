@@ -1,3 +1,4 @@
+
 CREATE DATABASE office;
 USE office;
 create table patients(
@@ -5,6 +6,8 @@ create table patients(
    firstname VARCHAR(100) NOT NULL,
    lastname VARCHAR(100) NOT NULL,
    username VARCHAR(100) NOT NULL UNIQUE,
+   phoneno VARCHAR(25),
+   emailID VARCHAR(25),
    password VARCHAR(40) NOT NULL,  
    dob VARCHAR(100) NOT NULL,
    immunization VARCHAR(100) DEFAULT "",
