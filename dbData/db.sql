@@ -25,9 +25,9 @@ create table visits(
    _id INT NOT NULL AUTO_INCREMENT,
    patientId VARCHAR(100) NOT NULL,
    vitalId VARCHAR(100) NOT NULL,
-   healthIssue VARCHAR(100),
-   diagnosis VARCHAR(100),
-   prescription VARCHAR(100),
+   healthIssue VARCHAR(100) DEFAULT "",
+   diagnosis VARCHAR(100) DEFAULT "",
+   prescription VARCHAR(100) DEFAULT "",
    createdAt VARCHAR(100) NOT NULL,
    PRIMARY KEY ( _id )
 );

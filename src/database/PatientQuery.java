@@ -7,10 +7,13 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import models.Patient;
+import models.VisitRecord;
 
 
 
@@ -57,6 +60,11 @@ public class PatientQuery {
 	private String getPatientImmunizationsQuery(int patientId) {
 		return String.format(
 				"SELECT * FROM  patients WHERE _id = '%s';", patientId);
+	}
+	
+	private String getPatientVisitsRecordsQuery(int patientId) {
+		return String.format(
+				"SELECT * FROM  visits WHERE patientId = '%s';", patientId);
 	}
 
 
@@ -179,6 +187,29 @@ public class PatientQuery {
 			throw exp;
 		}
 		return immunization;
+	}
+	
+	public List<VisitRecord> getPatientVisitsRecords(int patientId) throws SQLException {
+		List<VisitRecord> visitRecords = new ArrayList<VisitRecord>();
+		try {
+			String query = getPatientVisitsRecordsQuery(patientId);
+			System.out.println(query);
+			PreparedStatement preparedStatment = this.conn.prepareStatement(query);
+			ResultSet resultSet = preparedStatment.executeQuery();
+
+			while (resultSet.next()) {
+				VisitRecord record = new VisitRecord(
+						resultSet.getString("createdAt"),
+						resultSet.getString("healthIssue"),
+						resultSet.getString("prescription")
+				);
+				visitRecords.add(record);
+			}
+		}catch(Exception exp) {
+			exp.printStackTrace();
+			throw exp;
+		}
+		return visitRecords;
 	}
 	
 	public boolean createPatient( String firstname, String lastname, String username, String dob, String password) throws SQLException {
