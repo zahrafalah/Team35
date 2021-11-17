@@ -52,12 +52,17 @@ public class PatientQuery {
 			"INSERT INTO vitals(weight, height, temperature, systolic , diastolic) VALUES(%s,%s,%s,%s,%s);", weight, height, temperature, bpHigh, bpLow);
 	}
 	
+	private String addHealthConcernsAndAllergiesQuery(int patientId, String healthConcerns, String allergies) {
+		return String.format(
+			"UPDATE patients SET healthConcerns = %s, allergies = %s WHERE _id = '%s';",healthConcerns, allergies, patientId);
+	}
+	
 	private String createVisitQuery(String patientId, String vitalId, String strDate) {
 		return String.format(
 			"INSERT INTO visits(patientId, vitalId, createdAt) VALUES('%s','%s', '%s');", patientId, vitalId, strDate);
 	}
 	
-	private String getPatientImmunizationsQuery(int patientId) {
+	private String getPatientDataQuery(int patientId) {
 		return String.format(
 				"SELECT * FROM  patients WHERE _id = '%s';", patientId);
 	}
@@ -126,6 +131,26 @@ public class PatientQuery {
 		return result;
 	}
 	
+	public Boolean addHealthConcernsAndAllergies(int patientId, String healthConcerns, String allergies) throws SQLException {
+		Boolean result = false;
+		try {
+			String query = addHealthConcernsAndAllergiesQuery(patientId, healthConcerns, allergies);
+			System.out.println(query);
+			PreparedStatement preparedStatement = this.conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+			preparedStatement.executeUpdate();
+			ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+			
+			if (generatedKeys.next()) {
+				result = true;
+			}
+
+		}catch(Exception exp) {
+			exp.printStackTrace();
+			throw exp;
+		}
+		return result;
+	}
+	
 	public String createVisit(String patientId, String vitalId) throws SQLException {
 		String result = null;
 		try {
@@ -170,23 +195,25 @@ public class PatientQuery {
 		return patient;
 	}
 	
-	public String getPatientImmunizations(int patientId) throws SQLException {
-		String immunization = "";
+	public List<String> getPatientData(int patientId) throws SQLException {
+		List<String> patientData = new ArrayList<String>(3);
 		try {
-			String query = getPatientImmunizationsQuery(patientId);
+			String query = getPatientDataQuery(patientId);
 			System.out.println(query);
 			PreparedStatement preparedStatment = this.conn.prepareStatement(query);
 			ResultSet resultSet = preparedStatment.executeQuery();
 
 			if (resultSet.next()) {
-				immunization = resultSet.getString("immunization");
+				patientData.add(resultSet.getString("immunization"));
+				patientData.add(resultSet.getString("healthConcerns"));
+				patientData.add(resultSet.getString("allergies"));
 			}
 
 		}catch(Exception exp) {
 			exp.printStackTrace();
 			throw exp;
 		}
-		return immunization;
+		return patientData;
 	}
 	
 	public List<VisitRecord> getPatientVisitsRecords(int patientId) throws SQLException {
