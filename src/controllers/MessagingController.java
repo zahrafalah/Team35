@@ -61,14 +61,13 @@ public class MessagingController {
 		return this.role;
 	}
 	
-	private static String folderpath  = "C:\\Work\\CSE360\\Team35\\src\\messagesTxt\\";
+	private static String folderpath  = "C:\\Work\\CSE360\\Team35\\src\\messages\\";
 	
 
 
 	public void setPatient(Patient patient) {
 		patientName.setText(patient.getUsername());
 		phoneNumber.setText(patient.getPhoneNumber());
-		emailId.setText(patient.getEmail());
 		userName.setText(patient.getUsername());
 		currentUserName = patient.getUsername();
 		checkOrCreateSourceFile();

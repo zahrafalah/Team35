@@ -1,7 +1,0 @@
-Uday: Hello Doctor
-Yogesh: Hi How are You?
-Uday: Not well Doctor need you help
-Uday: Sever Stomach pain
-Uday: Help me
-Uday: Please
-Uday: Nooo
