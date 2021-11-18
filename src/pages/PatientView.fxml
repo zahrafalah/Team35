@@ -56,16 +56,16 @@
 
           </items>
         </ToolBar>
-            <TableView layoutX="178.0" layoutY="77.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="34.0">
+            <TableView fx:id="tableView" layoutX="178.0" layoutY="77.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="34.0">
               <columns>
-                <TableColumn prefWidth="60.80001753568649" text="No" />
-                <TableColumn prefWidth="122.39999771118164" text="Date" />
-                  <TableColumn prefWidth="113.60002136230469" text="Health Issue" />
-                  <TableColumn minWidth="5.5999755859375" prefWidth="115.20001220703125" text="Diagnosis" />
-                  <TableColumn minWidth="0.0" prefWidth="113.5999755859375" text="Prescription" />
-                  <TableColumn prefWidth="143.199951171875" text="Immunization" />
+                  <TableColumn fx:id="dateColumn" prefWidth="122.39999771118164" text="Date" />
+                  <TableColumn fx:id="heathIssueColumn" prefWidth="113.60002136230469" text="Health Issue" />
+                  <TableColumn fx:id="diagnosisColumn" minWidth="5.5999755859375" prefWidth="115.20001220703125" text="Diagnosis" />
+                  <TableColumn fx:id="prescriptionColumn" minWidth="0.0" prefWidth="280" text="Prescription" />      
               </columns>
             </TableView>
+            
+            
             <ScrollBar layoutX="669.0" layoutY="35.0" orientation="VERTICAL" prefHeight="418.0" prefWidth="14.0" />
       </children>
     </AnchorPane>

@@ -262,6 +262,29 @@ public class PatientQuery {
 		}
 		return visitRecords;
 	}
+	public List<VisitRecord> getPatientVisitsRecordsHome(int patientId) throws SQLException {
+		List<VisitRecord> visitRecords = new ArrayList<VisitRecord>();
+		try {
+			String query = getPatientVisitsRecordsQuery(patientId);
+			System.out.println(query);
+			PreparedStatement preparedStatment = this.conn.prepareStatement(query);
+			ResultSet resultSet = preparedStatment.executeQuery();
+
+			while (resultSet.next()) {
+				VisitRecord record = new VisitRecord(
+						resultSet.getString("createdAt"),
+						resultSet.getString("healthIssue"),
+						resultSet.getString("prescription"),
+						resultSet.getString("diagnosis")
+				);
+				visitRecords.add(record);
+			}
+		}catch(Exception exp) {
+			exp.printStackTrace();
+			throw exp;
+		}
+		return visitRecords;
+	}
 	
 	public boolean createPatient( String firstname, String lastname, String username, String dob, String password) throws SQLException {
 		String query = createPatientQuery(firstname, lastname, username, dob, password);
