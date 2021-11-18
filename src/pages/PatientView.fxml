@@ -33,7 +33,7 @@
                         <Insets left="70.0" right="10.0" top="5.0" />
                       </VBox.margin>
                     </Button>
-                    <Button contentDisplay="TOP" text="Messages" mnemonicParsing="false">
+                    <Button onAction= "#messages" contentDisplay="TOP" text="Messages" mnemonicParsing="false">
                       <VBox.margin>
                         <Insets left="70.0" right="10.0" top="5.0" />
                       </VBox.margin>
