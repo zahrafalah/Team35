@@ -19,152 +19,93 @@
             <Font size="18.0" />
           </font>
         </Label>
-            <ToolBar layoutY="-5.0" prefHeight="39.0" prefWidth="689.0">
-               <items>
-                  <FlowPane prefHeight="0.0" prefWidth="591.0">
-                     <children>
-                        <Label prefHeight="29.0" prefWidth="206.0" style="-fx-font-weight: bold;" text="Doctor's Office Automation System">
-                           <FlowPane.margin>
-                              <Insets left="12.0" />
-                           </FlowPane.margin>
-                        </Label>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="365.0">
-                           <children>
-                              <Label text="Search Patient" />
-                              <Label text="Messages">
-                                 <HBox.margin>
-                                    <Insets left="16.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
-                  </FlowPane>
-                  <MenuButton contentDisplay="TOP" mnemonicParsing="false" text="Yogesh">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Logout" />
-                    </items>
-                  </MenuButton>
-               </items>
-            </ToolBar>
-            <VBox alignment="TOP_CENTER" layoutY="33.0" prefHeight="367.0" prefWidth="689.0">
-               <children>
-                  <GridPane alignment="TOP_CENTER" prefHeight="362.0" prefWidth="669.0">
-                    <columnConstraints>
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="160.0" />
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="259.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="270.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" prefHeight="330.0" vgrow="ALWAYS" />
-                    </rowConstraints>
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="112.0" prefWidth="252.0" GridPane.columnIndex="1">
-                           <children>
-                              <Label prefHeight="24.0" prefWidth="88.0" text="Health Concerns" />
-                              <TextArea fx:id="healthConcerns" prefHeight="116.0" prefWidth="241.0">
-                                 <VBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </VBox.margin>
-                              </TextArea>
-                              <Label text="Allergies">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <TextArea fx:id="allergies" prefHeight="116.0" prefWidth="241.0">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" />
-                                 </VBox.margin>
-                              </TextArea>
-                              <Button onAction="#AddHealthConcernsAndAllergies" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Submit" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label prefHeight="24.0" prefWidth="88.0" text="Immunizations" />
-                              <Separator prefWidth="200.0" />
-                              <Label style="-fx-border-color: gray; -fx-border-radius: 4;" text="Covid19 - Covishield">
-                                 <padding>
-                                    <Insets bottom="2.0" left="4.0" right="4.0" top="2.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label style="-fx-border-color: gray; -fx-border-radius: 4;" text="Polio">
-                                 <padding>
-                                    <Insets bottom="2.0" left="4.0" right="4.0" top="2.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label prefHeight="43.0" prefWidth="128.0" style="-fx-border-color: gray; -fx-border-radius: 4;" text="measles, mumps, and rubella" textAlignment="CENTER" wrapText="true">
-                                 <padding>
-                                    <Insets bottom="2.0" left="4.0" right="4.0" top="2.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
-                           <children>
-                              <Label prefHeight="24.0" prefWidth="88.0" text="Previous Visits" />
-                              <Separator prefWidth="200.0" />
-                              <Accordion>
-                                <panes>
-                                  <TitledPane animated="false" text="08/20/2021">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="200.0">
-                                             <children>
-                                                <Label prefHeight="24.0" prefWidth="88.0" style="-fx-underline: true;" text="Health issue -">
-                                                   <padding>
-                                                      <Insets left="4.0" />
-                                                   </padding>
-                                                </Label>
-                                                <Label layoutY="24.0" prefHeight="24.0" prefWidth="88.0" text="Headache">
-                                                   <padding>
-                                                      <Insets left="4.0" />
-                                                   </padding>
-                                                </Label>
-                                                <Separator layoutX="3.0" layoutY="47.0" prefHeight="3.0" prefWidth="252.0" />
-                                                <Label layoutY="56.0" prefHeight="24.0" prefWidth="88.0" style="-fx-underline: true;" text="Prescription -">
-                                                   <padding>
-                                                      <Insets left="4.0" />
-                                                   </padding>
-                                                </Label>
-                                                <Label layoutY="78.0" prefHeight="43.0" prefWidth="264.0" text="Dolo (100mg) - 10 tablet - 3 times a day (morning, afternoon, night) after meals" wrapText="true">
-                                                   <padding>
-                                                      <Insets left="4.0" />
-                                                   </padding>
-                                                </Label>
-                                             </children>
-                                          </AnchorPane>
-                                    </content>
-                                  </TitledPane>
-                                  <TitledPane animated="false" text="03/03/2021">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                    </content>
-                                  </TitledPane>
-                                  <TitledPane animated="false" text="07/14/2020">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                    </content>
-                                  </TitledPane>
-                                </panes>
-                              </Accordion>
-                           </children>
-                        </VBox>
-                     </children>
-                  </GridPane>
-               </children></VBox>
+        <ToolBar layoutY="-5.0" prefHeight="39.0" prefWidth="689.0">
+          <items>
+            <FlowPane prefHeight="0.0" prefWidth="591.0">
+              <children>
+                <Label prefHeight="29.0" prefWidth="206.0" style="-fx-font-weight: bold;" text="Doctor's Office Automation System">
+                  <FlowPane.margin>
+                    <Insets left="12.0" />
+                  </FlowPane.margin>
+                </Label>
+                <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="365.0">
+                  <children>
+                    <Label text="Search Patient" />
+                    <Label text="Messages">
+                      <HBox.margin>
+                        <Insets left="16.0" />
+                      </HBox.margin>
+                    </Label>
+                    <Label fx:id="username" contentDisplay="TOP">
+                      <HBox.margin>
+                        <Insets left="5.0" />
+                      </HBox.margin>
+                    </Label>
+                    <Button onAction="#Logout" contentDisplay="TOP" text="Logout" mnemonicParsing="false">
+                      <VBox.margin>
+                        <Insets left="70.0" right="10.0" top="5.0" />
+                      </VBox.margin>
+                    </Button>
+                  </children>
+                </HBox>
+              </children>
+            </FlowPane>
+
+
+          </items>
+        </ToolBar>
+        <VBox alignment="TOP_CENTER" layoutY="33.0" prefHeight="367.0" prefWidth="689.0">
+          <children>
+            <GridPane alignment="TOP_CENTER" prefHeight="362.0" prefWidth="669.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="160.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="259.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="270.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" prefHeight="330.0" vgrow="ALWAYS" />
+              </rowConstraints>
+              <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+              </VBox.margin>
+              <children>
+                <VBox alignment="TOP_CENTER" prefHeight="112.0" prefWidth="252.0" GridPane.columnIndex="1">
+                  <children>
+                    <Label prefHeight="24.0" prefWidth="88.0" text="Health Concerns" />
+                    <TextArea fx:id="healthConcerns" prefHeight="116.0" prefWidth="241.0">
+                      <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                      </VBox.margin>
+                    </TextArea>
+                    <Label text="Allergies">
+                      <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                      </VBox.margin>
+                    </Label>
+                    <TextArea fx:id="allergies" prefHeight="116.0" prefWidth="241.0">
+                      <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                      </VBox.margin>
+                    </TextArea>
+                    <Button onAction="#AddHealthConcernsAndAllergies" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Submit" />
+                  </children>
+                </VBox>
+                <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                    <Label prefHeight="24.0" prefWidth="88.0" text="Immunizations" />
+                    <Separator prefWidth="200.0" />
+                  </children>
+                </VBox>
+                <VBox fx:id="vBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                  <children>
+                    <Label prefHeight="24.0" prefWidth="88.0" text="Previous Visits" />
+                    <Separator prefWidth="200.0" />
+                  </children>
+                </VBox>
+              </children>
+            </GridPane>
+          </children>
+        </VBox>
       </children>
     </AnchorPane>
   </children>

@@ -10,15 +10,10 @@ import models.Doctor;
 import models.Nurse;
 import models.Patient;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Scanner;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 public class MessagingController {
 	
@@ -66,7 +61,7 @@ public class MessagingController {
 		return this.role;
 	}
 	
-	private static String folderpath  = "C:\\Work\\CSE360\\Team35\\src\\messages";
+	private static String folderpath  = "C:\\Work\\CSE360\\Team35\\src\\messagesTxt\\";
 	
 
 
@@ -99,12 +94,16 @@ public class MessagingController {
 		return docotr;
 	}
 	
+	public Patient getAssignedPatient() {
+		Patient pat = new Patient("Uday","123456",12,"6018139045","23-04-99","Uday","Kumar","upolishe@asu.edu");
+		return pat;
+	}
+	
 	
 	private void checkOrCreateSourceFile() {
 		this.displayMessages.setEditable(false);
-		//File usertxtFile = new File(folderpath+"\\"+getRole()+"\\"+currentUserName+".txt");
 		try {
-		      File myObj = new File("C:\\Work\\CSE360\\Team35\\src\\messagesTxt\\" + getRole() + "\\"+currentUserName+".txt");
+		      File myObj = new File(folderpath + getRole() + "\\"+currentUserName+".txt");
 		      if (myObj.createNewFile()) {
 		        System.out.println("File created: " + myObj.getName());
 		      } else {
@@ -127,12 +126,22 @@ public class MessagingController {
 	private void checkOrCreateSourceFileForTarget() {
 		this.displayMessages.setEditable(false);
 		try {
-		      File myObj = new File("C:\\Work\\CSE360\\Team35\\src\\messagesTxt\\Doctor\\"+getAssignedDoctor().getUsername()+".txt");
-		      if (myObj.createNewFile()) {
-		        System.out.println("File created: " + myObj.getName());
-		      } else {
-		    	  System.out.println("Created");
-		      }
+			  if(getRole() == "Patinet") {
+			      File myObj = new File(folderpath + "Doctor\\"+getAssignedDoctor().getUsername()+".txt");
+			      if (myObj.createNewFile()) {
+			        System.out.println("File created: " + myObj.getName());
+			      } else {
+			    	  System.out.println("Created");
+			      }
+			  }
+			  else {
+				  File myObj = new File(folderpath+"Patient\\"+getAssignedPatient().getUsername()+".txt");
+			      if (myObj.createNewFile()) {
+			        System.out.println("File created: " + myObj.getName());
+			      } else {
+			    	  System.out.println("Created");
+			      }
+			  }
 		    } catch (IOException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
@@ -144,8 +153,16 @@ public class MessagingController {
 		String totalMessage = this.displayMessages.getText();
 		if(this.messageContent.getText() != null) {
 			try {
-				String SourceFile = "C:\\Work\\CSE360\\Team35\\src\\messagesTxt\\Patient\\"+currentUserName+".txt";
-				String TargetFile = "C:\\Work\\CSE360\\Team35\\src\\messagesTxt\\Doctor\\"+getAssignedDoctor().getUsername()+".txt";
+				String SourceFile = folderpath+"Patient\\"+currentUserName+".txt";
+				String TargetFile = folderpath+"Doctor\\"+getAssignedDoctor().getUsername()+".txt";
+				if(getRole() == "Patient") {
+					SourceFile = folderpath+"Patient\\"+currentUserName+".txt";
+					TargetFile = folderpath+"Doctor\\"+getAssignedDoctor().getUsername()+".txt";
+				}
+				else {
+					SourceFile = folderpath+"Doctor\\"+currentUserName+".txt";
+					TargetFile = folderpath+"Patient\\"+getAssignedPatient().getUsername()+".txt";
+				}
 				File myObj = new File(SourceFile);
 				String sourceMsgs = "";
 		    	  Scanner myReader = new Scanner(myObj);

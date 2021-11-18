@@ -24,6 +24,12 @@ public class Patient {
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 	}
+	
+	public Patient(String username, int id, String dob) {
+		this.username= username;
+		this.id = id;
+		this.dob = dob;
+	}
 
 	public int getId() {
 		return id;
@@ -37,7 +43,7 @@ public class Patient {
 		return password;
 	}
 	
-	public String getDOB() {
+	public String getDob() {
 		return dob;
 	}
 	

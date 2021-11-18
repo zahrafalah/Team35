@@ -6,15 +6,17 @@
 package controllers;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,6 +24,8 @@ import javafx.stage.Stage;
 import models.Doctor;
 import models.Nurse;
 import models.Patient;
+import database.Driver;
+import database.PatientQuery;
 
 public class SearchPatientController {
 	
@@ -38,6 +42,9 @@ public class SearchPatientController {
 
 	@FXML
 	private DatePicker dob;
+	
+	@FXML
+	private Label errorMessage;
 
 	private Nurse nurse;
 
@@ -72,18 +79,44 @@ public class SearchPatientController {
 		username.setText(doctor.getUsername());
 	}
 	
-	public void SearchPatient(ActionEvent event) {
-		/* ToDo - Should be removed before marking story as done */
-		System.out.println("patient successfully searched");
+	private boolean isChildPatient(String dob) {
+		LocalDate today = LocalDate.now();                          //Today's date
+		LocalDate birthday = LocalDate.parse(dob, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		Period p = Period.between(birthday, today);
+		return p.getYears() <= 12;
+	}
+	
+	private Patient searchPatient(Connection conn) throws Exception {
+		PatientQuery patientQuery = new PatientQuery(conn);
+		Patient patient = patientQuery.searchPatient(this.firstName.getText(), this.lastName.getText(), this.dob.getValue().toString());
+		return patient;
+	}
+	
+	public void SearchPatient(ActionEvent event) throws Exception {
 		try {
-			/* ToDo - should search patient in system and redirect to doctor's dashboard or add vitals page for doctor and nurse users */
+			Connection conn = Driver.getConnection();
+			patient = searchPatient(conn);
+			if (patient == null) {
+				this.errorMessage.setText("Patient not found. Try again!");
+				return;
+			}
+			System.out.println("patient found with id: " + patient.getUsername());
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
-					
-			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/pages/AddVitals.fxml")));
-			stage.setScene(scene);
-			stage.show();
-
+			if(stage.getUserData().getClass().getName().equals("models.Nurse")) {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/AddVitals.fxml"));
+				Parent root = loader.load();
+				AddVitalsController controller = (AddVitalsController) loader.getController();
+				controller.setPatient(patient);
+		        controller.setNurse(nurse);
+		        controller.setIsChildPatient(isChildPatient(patient.getDob()));
+		        Scene scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
+			} else {
+				// ToDo: Kartavya to redirect the user to doctor's dashboard page
+				System.out.println("logged in as doctor");
+			}
 		} catch (IOException ex) {
 			System.err.println(ex.getMessage());
 		}

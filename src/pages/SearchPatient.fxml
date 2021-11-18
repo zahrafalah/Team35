@@ -18,73 +18,73 @@
             <Font size="18.0" />
           </font>
         </Label>
-            <ToolBar layoutY="-5.0" prefHeight="39.0" prefWidth="689.0">
-               <items>
-                  <FlowPane prefHeight="0.0" prefWidth="591.0">
-                     <children>
-                        <Label prefHeight="29.0" prefWidth="206.0" style="-fx-font-weight: bold;" text="Doctor's Office Automation System">
-                           <FlowPane.margin>
-                              <Insets left="12.0" />
-                           </FlowPane.margin>
-                        </Label>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="365.0">
-                           <children>
-                              <Label text="Search Patient" />
+        <ToolBar layoutY="-5.0" prefHeight="39.0" prefWidth="689.0">
+          <items>
+            <FlowPane prefHeight="0.0" prefWidth="591.0">
+              <children>
+                <Label prefHeight="29.0" prefWidth="206.0" style="-fx-font-weight: bold;" text="Doctor's Office Automation System">
+                  <FlowPane.margin>
+                    <Insets left="12.0" />
+                  </FlowPane.margin>
+                </Label>
+                <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="365.0">
+                  <children>
+                    <Label text="Search Patient" />
                               <Button text="Messages" onAction="#startMessaging">
-                                 <HBox.margin>
-                                    <Insets left="16.0" />
-                                 </HBox.margin>
+                      <HBox.margin>
+                        <Insets left="16.0" />
+                      </HBox.margin>
                               </Button>
-                              <Label  fx:id="username" contentDisplay="TOP" >
-                                 <HBox.margin>
-                                    <Insets left="5.0" />
-                                 </HBox.margin>
-                     		  </Label>
-                              <Button onAction="#Logout" contentDisplay="TOP" text="Logout" mnemonicParsing="false">
-                      			 <VBox.margin>
-                                 	<Insets left="70.0" right="10.0" top="5.0" />
-                      			 </VBox.margin>
-                  			   </Button>                   
-                           </children>
-                        </HBox>
-                     </children>
-                  </FlowPane>
-               
-            
-                  
-               </items>
-            </ToolBar>
-            <VBox alignment="CENTER" layoutY="33.0" prefHeight="367.0" prefWidth="689.0">
-               <children>
-                  <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Search Patient">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <GridPane alignment="CENTER">
-                    <columnConstraints>
-                      <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="10.0" />
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="First Name" />
-                        <Label text="Last Name" GridPane.rowIndex="1" />
-                        <Label text="Date of Birth " GridPane.rowIndex="2" />
-                        <TextField fx:id="firstName" GridPane.columnIndex="1" />
-                        <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <DatePicker fx:id="dob" showWeekNumbers="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Button onAction="#SearchPatient" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Search" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                     </children>
-                  </GridPane>
-               </children></VBox>
+                    <Label fx:id="username" contentDisplay="TOP">
+                      <HBox.margin>
+                        <Insets left="5.0" />
+                      </HBox.margin>
+                    </Label>
+                    <Button onAction="#Logout" contentDisplay="TOP" text="Logout" mnemonicParsing="false">
+                      <VBox.margin>
+                        <Insets left="70.0" right="10.0" top="5.0" />
+                      </VBox.margin>
+                    </Button>
+                  </children>
+                </HBox>
+              </children>
+            </FlowPane>
+
+
+          </items>
+        </ToolBar>
+        <VBox alignment="CENTER" layoutY="33.0" prefHeight="367.0" prefWidth="689.0">
+          <children>
+            <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="Search Patient">
+              <font>
+                <Font size="18.0" />
+              </font>
+            </Label>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="10.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+              <children>
+                <Label text="First Name" />
+                <Label text="Last Name" GridPane.rowIndex="1" />
+                <Label text="Date of Birth " GridPane.rowIndex="2" />
+                <TextField fx:id="firstName" GridPane.columnIndex="1" />
+                <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <DatePicker fx:id="dob" showWeekNumbers="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button onAction="#SearchPatient" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Search" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label fx:id="errorMessage" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+              </children>
+            </GridPane>
+          </children>
+        </VBox>
       </children>
     </AnchorPane>
   </children>
