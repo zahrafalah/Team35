@@ -118,10 +118,10 @@ public class LoginController {
           return;
         }
         stage.setUserData(patient);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/SearchPatient.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/PatientView.fxml"));
         root = (Parent) loader.load();
 
-        SearchPatientController controller = (SearchPatientController) loader.getController();
+        ViewPatientController controller = (ViewPatientController) loader.getController();
         controller.SetPatient(patient);
       } else if (userRole == "Nurse") {
         nurse = getNurse(conn);
