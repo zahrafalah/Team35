@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.Doctor;
@@ -43,7 +44,7 @@ public class LoginController {
   private TextField username;
 
   @FXML
-  private TextField password;
+  private PasswordField password;
 
   public void initialize() {
     loadData();
@@ -107,6 +108,11 @@ public class LoginController {
       Patient patient = null;
       Nurse nurse = null;
       Doctor doctor = null;
+
+      if (this.username.getText() == "" || this.password.getText() == "") {
+        lblstatus.setText("Please enter credentials to log in.");
+        return;
+      }
 
       if (userRole == null) {
         lblstatus.setText("Please select a role to log in.");

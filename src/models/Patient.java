@@ -6,14 +6,30 @@ package models;
 
 public class Patient {
 	private int id;
+	private String firstName;
+	private String lastName;
 	private String username;
 	private String password;
 	private String phoneNumber;
 	private String dob;
-	private String firstName;
-	private String secondName;
-	private String email;
+	private String immunization;
+	private String healthConcerns;
+	private String allergies;
 
+	public Patient(int id, String firstName, String lastName, String username, String password, String dob,
+			String immunization, String healthConcerns, String allergies) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.dob = dob;
+		this.immunization = immunization;
+		this.healthConcerns = healthConcerns;
+		this.allergies = allergies;
+	}
+	
 	public Patient(String username, String pass, int id) {
 		this.username= username;
 		this.password = pass;
@@ -28,6 +44,26 @@ public class Patient {
 
 	public int getId() {
 		return id;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getImmunization() {
+		return immunization;
+	}
+
+	public String getHealthConcerns() {
+		return healthConcerns;
+	}
+
+	public String getAllergies() {
+		return allergies;
 	}
 
 	public String getUsername() {

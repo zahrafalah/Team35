@@ -114,7 +114,14 @@ public class SearchPatientController {
 		        stage.setScene(scene);
 		        stage.show();
 			} else {
-				// ToDo: Kartavya to redirect the user to doctor's dashboard page
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/DoctorDashboard.fxml"));
+				Parent root = loader.load();
+				DoctorDashboardController doctorDashboardcontroller = (DoctorDashboardController) loader.getController();
+				doctorDashboardcontroller.setPatient(patient);
+				doctorDashboardcontroller.setDoctor(doctor);
+		        Scene scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
 				System.out.println("logged in as doctor");
 			}
 		} catch (IOException ex) {

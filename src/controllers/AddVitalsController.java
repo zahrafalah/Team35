@@ -79,7 +79,7 @@ public class AddVitalsController {
 	private String saveVitals(Connection conn) throws Exception {
 		PatientQuery patientQuery = new PatientQuery(conn);
 		String result = patientQuery.saveVitals(this.weight.getText(), this.height.getText(),
-				this.temperature.getText(), this.bpHigh.getText(), this.bpLow.getText(), this.disableBP);
+				this.temperature.getText(), this.bpHigh.getText(), this.bpLow.getText(), this.disableBP, this.patient.getId());
 		return result;
 	}
 
