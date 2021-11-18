@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.Patient;
@@ -28,7 +29,7 @@ public class RegisterController {
   private TextField lastname;
 
   @FXML
-  private TextField password;
+  private PasswordField password;
 
   @FXML
   private DatePicker dob;
@@ -37,23 +38,27 @@ public class RegisterController {
   private TextField username;
 
   @FXML
-  private TextField confirmPass;
+  private PasswordField confirmPass;
 
   public void Register(ActionEvent event) {
-    System.out.println("Hi");
-
     try {
       boolean patient = false;
       Connection conn = Driver.getConnection();
 
-      System.out.println("pass: " + this.password.getText());
-      System.out.println("confirmpass: " + this.confirmPass.getText());
-
       boolean passCheck = this.password.getText().equals(this.confirmPass.getText());
-      System.out.println("check: " + passCheck);
+
+      if (this.firstname.getText() == "" || this.lastname.getText() == "" || this.username.getText() == ""
+          || this.password.getText() == "" || this.confirmPass.getText() == "") {
+        status.setText("All fields are required");
+        return;
+      }
+
+      if (this.dob.getValue() == null) {
+        status.setText("Date of birth is required");
+        return;
+      }
 
       if (!passCheck) {
-        System.out.println("passwords don't match");
         status.setText("Password doesn't match");
         return;
       }
@@ -65,8 +70,6 @@ public class RegisterController {
         status.setText("Username must be unique!");
         return;
       }
-
-      System.out.println("isFound " + isFound);
 
       patient = patientQuery.createPatient(this.firstname.getText(), this.lastname.getText(), this.username.getText(),
           this.dob.getValue().toString(), this.password.getText());
