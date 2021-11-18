@@ -14,15 +14,10 @@ public class Patient {
 	private String secondName;
 	private String email;
 
-	public Patient(String username, String pass, int id, String phoneNumber, String dob, String firstName, String secondName, String email) {
+	public Patient(String username, String pass, int id) {
 		this.username= username;
 		this.password = pass;
-		this.dob = dob;
-		this.firstName = firstName;
-		this.secondName = secondName;
 		this.id = id;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
 	}
 	
 	public Patient(String username, int id, String dob) {

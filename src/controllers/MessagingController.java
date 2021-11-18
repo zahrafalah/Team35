@@ -76,6 +76,7 @@ public class MessagingController {
 	}
 	
 	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 		doctorName.setText(doctor.getUsername());
 		currentUserName = doctor.getUsername();
 		checkOrCreateSourceFile();
@@ -90,12 +91,12 @@ public class MessagingController {
 	}
 	
 	public Doctor getAssignedDoctor() {
-		Doctor docotr = new Doctor("Yogesh","123456",1);
-		return docotr;
+		return this.doctor;
 	}
 	
+	
 	public Patient getAssignedPatient() {
-		Patient pat = new Patient("Uday","123456",12,"6018139045","23-04-99","Uday","Kumar","upolishe@asu.edu");
+		Patient pat = new Patient("Uday","123456",12);
 		return pat;
 	}
 	
@@ -182,7 +183,7 @@ public class MessagingController {
 		          Writer.close();
 			}
 			catch(Exception e) {
-				
+				System.out.println(e);
 			}
 		}
 		

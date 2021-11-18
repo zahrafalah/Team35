@@ -116,7 +116,7 @@ public class PatientQuery {
 				String firstName = resultSet.getString("firstName");
 				String secondName = resultSet.getString("secondName");
 				String email = resultSet.getString("email");
-				patient = new Patient(name, pass, id, phoneNumber, dob, firstName, secondName, email);
+				patient = new Patient(name, pass, id);
 		}
 		return patient;
 	}

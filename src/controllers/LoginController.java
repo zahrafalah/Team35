@@ -122,7 +122,6 @@ public class LoginController {
         root = (Parent) loader.load();
 
         ViewPatientController controller = (ViewPatientController) loader.getController();
-				controller.setRole(userRole);
         controller.SetPatient(patient);
       } else if (userRole == "Nurse") {
         nurse = getNurse(conn);

@@ -131,10 +131,17 @@ public class SearchDoctorController {
 			System.out.println("Doctor found with id: " + doctor.getUsername());
 			Node node = (Node) event.getSource();
 			Stage stage = (Stage) node.getScene().getWindow();
-			if(stage.getUserData().getClass().getName().equals("models.Doctor")) {
-				// ToDo - Uday has to redirect the user to the Messages Page
-				
-			} 
+		      FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/messaging.fxml"));
+		      Parent root = (Parent) loader.load();
+		      
+		      MessagingController controller = (MessagingController) loader.getController();
+		      controller.setPatient(patient);
+		      controller.setDoctor(doctor);
+		      
+		      
+		      Scene scene = new Scene(root);
+		      stage.setScene(scene);
+		      stage.show();
 		} catch (IOException ex) {
 			System.err.println(ex.getMessage());
 		}
