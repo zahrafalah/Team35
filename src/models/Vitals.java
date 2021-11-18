@@ -10,7 +10,7 @@ public class Vitals {
 	private int diastolic;
 	
 	public Vitals(int id, int patientID, int weight, int height, int temperature, int systolic, int diastolic) {
-		super();
+		//super();
 		this.id = id;
 		this.patientID = patientID;
 		this.weight = weight;

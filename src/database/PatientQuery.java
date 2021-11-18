@@ -43,18 +43,18 @@ public class PatientQuery {
 			"SELECT * FROM  patients WHERE firstname = '%s' AND lastname = '%s' AND dob = '%s'", firstname, lastname, dob);
 	}
 	
-	private String saveVitalsQuery(String weight, String height, String temperature, String bpHigh, String bpLow, Boolean disableBP) {
+	private String saveVitalsQuery(String weight, String height, String temperature, String bpHigh, String bpLow, Boolean disableBP, int patientId) {
 		if(disableBP) {
 			return String.format(
-					"INSERT INTO vitals(weight, height, temperature) VALUES(%s,%s,%s);", weight, height, temperature);
+					"INSERT INTO vitals(weight, height, temperature, patientID) VALUES(%s,%s,%s,%s);", weight, height, temperature, patientId);
 		}
 		return String.format(
-			"INSERT INTO vitals(weight, height, temperature, systolic , diastolic) VALUES(%s,%s,%s,%s,%s);", weight, height, temperature, bpHigh, bpLow);
+			"INSERT INTO vitals(weight, height, temperature, systolic , diastolic, patientID) VALUES(%s,%s,%s,%s,%s, %s);", weight, height, temperature, bpHigh, bpLow, patientId);
 	}
 	
 	private String addHealthConcernsAndAllergiesQuery(int patientId, String healthConcerns, String allergies) {
 		return String.format(
-			"UPDATE patients SET healthConcerns = %s, allergies = %s WHERE _id = '%s';",healthConcerns, allergies, patientId);
+			"UPDATE patients SET healthConcerns = %s, allergies = %s WHERE _id = '%s';",healthConcerns, allergies, patientId);}
 	public String getVitalsQuery(int patientID) {
 		return String.format(
 				//select * from vitals where patientID = 1 order by _id desc limit 1;
@@ -81,6 +81,15 @@ public class PatientQuery {
 				"UPDATE patients SET firstname ='%s', lastname = '%s', emailID = '%s', phoneno = '%s', immunization = '%s', insurance = '%s', dob = '%s' WHERE _id = %d ; ", firstname, lastname, email, phone,immunization, insurance,dob, patientID);
 	}
 
+	
+	public String getSaveDiagnosisQuery(int vitalId, String healthIssue, String diagnosis, String prescription) {
+		return String.format("UPDATE visits SET healthIssue = '%s', diagnosis = '%s', prescription = '%s' WHERE vitalId = '%s'", healthIssue,diagnosis, prescription, vitalId);
+	}
+	
+	public String deletePatientQuery(int patientId) {
+		return String.format(
+				"DELETE FROM patients WHERE _id = '%s';", patientId);
+	}
 
 //	private String deleteOnePatientQueryStmt = "DELETE FROM patients"+ "WHERE _id = " + userId;
 //	private String addPatientQueryStmt = "INSERT INTO patients(username,password) VALUES ('', '');";
@@ -120,10 +129,10 @@ public class PatientQuery {
 		return patient;
 	}
 	
-	public String saveVitals(String weight, String height, String temperature, String bpHigh, String bpLow, Boolean disableBP) throws SQLException {
+	public String saveVitals(String weight, String height, String temperature, String bpHigh, String bpLow, Boolean disableBP, int patientId) throws SQLException {
 		String result = null;
 		try {
-			String query = saveVitalsQuery(weight, height, temperature, bpHigh, bpLow, disableBP);
+			String query = saveVitalsQuery(weight, height, temperature, bpHigh, bpLow, disableBP, patientId);
 			System.out.println(query);
 			PreparedStatement preparedStatement = this.conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
 			preparedStatement.executeUpdate();
@@ -212,8 +221,15 @@ public class PatientQuery {
 
 			if (resultSet.next()) {
 				int id = resultSet.getInt("_id");
-				String name = resultSet.getString("username");
-				patient = new Patient(name, id, dob);
+				String firstName = resultSet.getString("firstname");
+				String lastName = resultSet.getNString("lastname");
+				String username = resultSet.getString("username");
+				String password = resultSet.getString("password");
+				String dateOfBirth = resultSet.getString("dob");
+				String immunization = resultSet.getString("immunization");
+				String healthConcerns = resultSet.getString("healthConcerns");
+				String allergies = resultSet.getString("allergies");
+				patient = new Patient(id, firstName, lastName, username, password, dateOfBirth, immunization, healthConcerns, allergies);
 			}
 
 		}catch(Exception exp) {
