@@ -41,4 +41,27 @@ public class DoctorQuery {
 
 		return doctor;
 	}
+	public String searchDoctorQuery(String firstName, String lastName) {
+		return String.format(
+				"SELECT * FROM  doctors WHERE username = '%s' OR username = '%s'", firstName, lastName); 
+	}
+	
+	public Doctor searchDoctor(String firstName, String lastName) {
+		Doctor doctor = null;
+		try {
+			String query = searchDoctorQuery(firstName, lastName);
+			PreparedStatement preparedStatment = this.conn.prepareStatement(query);
+			ResultSet resultSet = preparedStatment.executeQuery();
+
+			if (resultSet.next()) {
+				int id = resultSet.getInt("_id");
+				String name = resultSet.getString("username");
+				doctor = new Doctor(id, name);
+			}
+		}catch(Exception exp) {
+			exp.printStackTrace();
+		}
+
+		return doctor;
+	}
 }

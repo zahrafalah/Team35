@@ -61,7 +61,7 @@ public class ViewPatientController implements Initializable {
 	
 	public ObservableList<PatientInfo> getRecords(){
 		ObservableList<PatientInfo> records = FXCollections.observableArrayList();
-		records.add( new PatientInfo("Fever","Dengue","CDSD tablet","21:10:11"));
+		records.add( new PatientInfo("Fever","Dengue","CDSD tablet","21:10:2021"));
 		
 		ArrayList<PatientInfo> visits;
 		try {
@@ -97,6 +97,24 @@ public class ViewPatientController implements Initializable {
 	public void Logout(ActionEvent event) {
 		LogoutController logout = new LogoutController();
 		logout.Logout(event);
+	}
+	
+	public void messages(ActionEvent event) {
+		try {
+			Node node = (Node) event.getSource();
+		    Stage stage = (Stage) node.getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/pages/SearchDoctor.fxml"));
+	        Parent root = (Parent) loader.load();
+
+	        SearchDoctorController controller = (SearchDoctorController) loader.getController();
+	        controller.SetPatient(patient);
+	        
+	        Scene scene = new Scene(root);
+	        stage.setScene(scene);
+	        stage.show();
+		}catch(IOException e) {
+			System.err.print(e);
+		}
 	}
 	
 	public void SetPatient(Patient patient) {
