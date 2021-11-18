@@ -142,5 +142,6 @@ public class ViewPatientController implements Initializable {
         
 	}
 
+
 	
 }

@@ -141,6 +141,7 @@ public class LoginController {
         root = (Parent) loader.load();
 
         SearchPatientController controller = (SearchPatientController) loader.getController();
+				controller.setRole(userRole);
         controller.SetNurse(nurse);
 
       } else if (userRole == "Doctor") {
@@ -156,6 +157,7 @@ public class LoginController {
         root = (Parent) loader.load();
 
         SearchPatientController controller = (SearchPatientController) loader.getController();
+				controller.setRole(userRole);
         controller.SetDoctor(doctor);
       }
 

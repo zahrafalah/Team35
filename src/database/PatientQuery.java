@@ -125,6 +125,11 @@ public class PatientQuery {
 			String name = resultSet.getString("username");
 			String pass = resultSet.getString("password");
 			patient = new Patient(name, pass, id);
+				String phoneNumber = resultSet.getString("phoneNumber");
+				String firstName = resultSet.getString("firstName");
+				String secondName = resultSet.getString("secondName");
+				String email = resultSet.getString("email");
+				patient = new Patient(name, pass, id);
 		}
 		return patient;
 	}

@@ -10,6 +10,7 @@ public class Patient {
 	private String lastName;
 	private String username;
 	private String password;
+	private String phoneNumber;
 	private String dob;
 	private String immunization;
 	private String healthConcerns;
@@ -44,10 +45,6 @@ public class Patient {
 	public int getId() {
 		return id;
 	}
-	
-	public String getFirstName() {
-		return firstName;
-	}
 
 	public String getLastName() {
 		return lastName;
@@ -76,4 +73,13 @@ public class Patient {
 	public String getDob() {
 		return dob;
 	}
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
 }
