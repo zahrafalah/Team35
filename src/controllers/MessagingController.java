@@ -67,8 +67,6 @@ public class MessagingController {
 
 	public void setPatient(Patient patient) {
 		patientName.setText(patient.getUsername());
-		phoneNumber.setText(patient.getPhoneNumber());
-		userName.setText(patient.getUsername());
 		currentUserName = patient.getUsername();
 		checkOrCreateSourceFile();
 		checkOrCreateSourceFileForTarget();
@@ -155,7 +153,8 @@ public class MessagingController {
 			try {
 				String SourceFile = folderpath+"Patient\\"+currentUserName+".txt";
 				String TargetFile = folderpath+"Doctor\\"+getAssignedDoctor().getUsername()+".txt";
-				if(getRole() == "Patient") {
+				String msgRole = getRole();
+				if(msgRole == "Patient") {
 					SourceFile = folderpath+"Patient\\"+currentUserName+".txt";
 					TargetFile = folderpath+"Doctor\\"+getAssignedDoctor().getUsername()+".txt";
 				}

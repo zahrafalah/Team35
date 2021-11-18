@@ -135,9 +135,11 @@ public class SearchDoctorController {
 		      Parent root = (Parent) loader.load();
 		      
 		      MessagingController controller = (MessagingController) loader.getController();
-		      controller.setPatient(patient);
-		      controller.setDoctor(doctor);
 		      
+		      controller.setRole("Patient"); 
+		      controller.setDoctor(doctor);
+		      controller.setPatient(patient);
+		           
 		      
 		      Scene scene = new Scene(root);
 		      stage.setScene(scene);
