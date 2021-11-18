@@ -45,10 +45,6 @@ public class Patient {
 	public int getId() {
 		return id;
 	}
-	
-	public String getFirstName() {
-		return firstName;
-	}
 
 	public String getLastName() {
 		return lastName;
@@ -86,11 +82,4 @@ public class Patient {
 		return firstName;
 	}
 	
-	public String getSecondName() {
-		return secondName;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
 }
