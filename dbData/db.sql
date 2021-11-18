@@ -19,12 +19,14 @@ create table patients(
 
 create table vitals(
    _id INT NOT NULL AUTO_INCREMENT,
+   patientID INT NOT NULL,
    weight INT(3) NOT NULL,
    height INT(3) NOT NULL,
    temperature INT(3) NOT NULL,
    systolic INT(3),  
    diastolic INT(3),
-   PRIMARY KEY ( _id )
+   PRIMARY KEY ( _id ),
+   FOREIGN KEY (patientID) REFERENCES patients(_id)
 );
 
 create table visits(
@@ -69,5 +71,10 @@ INSERT INTO doctors(username,password) VALUES ('Yogesh', '123456');
 INSERT INTO doctors(username,password) VALUES ('Nipoon', '123456');
 INSERT INTO doctors(username,password) VALUES ('Kartavya', '123456');
 INSERT INTO doctors(username,password) VALUES ('Uday', '123456');
+
+INSERT INTO vitals(patientID,weight, height, temperature, systolic, diastolic) 
+VALUES (1, 80, 200, 100, 120, 80),
+		(1, 90, 200, 110, 120, 80),
+        (2, 70, 300, 95, 115, 85);
 
 SELECT * FROM patients;
